@@ -18,6 +18,10 @@ dtbo-y += sun-vidc.dtbo
 dtbo-y += sun-vidc-v2.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_LEMANS), y)
+dtbo-y += lemans-vidc.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
