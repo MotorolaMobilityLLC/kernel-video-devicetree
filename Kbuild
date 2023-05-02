@@ -6,6 +6,7 @@ endif
 ifeq ($(CONFIG_ARCH_KALAMA), y)
 dtbo-y += kalama-vidc.dtbo
 dtbo-y += kalama-vidc-v2.dtbo
+dtbo-y += kalama-vidc-iot.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ANORAK), y)
