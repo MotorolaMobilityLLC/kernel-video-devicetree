@@ -17,21 +17,20 @@
 		venus-core0-supply = <&gcc_vcodec0_gdsc>;
 
 		/* Clocks */
-		clock-names = "core_clk", "iface_clk", "bus_clk",
+		clock-names = "core_clk", "bus_clk",
 			"core0_clk", "core0_bus_clk", "throttle_clk";
 
-		clock-ids = <GCC_VIDEO_VENUS_CTL_CLK GCC_VIDEO_AHB_CLK
+		clock-ids = <GCC_VIDEO_VENUS_CTL_CLK
 			GCC_VENUS_CTL_AXI_CLK GCC_VIDEO_VCODEC0_SYS_CLK
 			GCC_VCODEC0_AXI_CLK GCC_VIDEO_THROTTLE_CORE_CLK>;
 		clocks = <&gcc GCC_VIDEO_VENUS_CTL_CLK>,
-			<&gcc GCC_VIDEO_AHB_CLK>,
 			<&gcc GCC_VENUS_CTL_AXI_CLK>,
 			<&gcc GCC_VIDEO_VCODEC0_SYS_CLK>,
 			<&gcc GCC_VCODEC0_AXI_CLK>,
 			<&gcc GCC_VIDEO_THROTTLE_CORE_CLK>;
-		qcom,proxy-clock-names = "core_clk", "iface_clk", "bus_clk",
+		qcom,proxy-clock-names = "core_clk", "bus_clk",
 			"core0_clk", "core0_bus_clk", "throttle_clk";
-		qcom,clock-configs = <0x1 0x0 0x0 0x1 0x0 0x0>;
+		qcom,clock-configs = <0x1 0x0 0x1 0x0 0x0>;
 		qcom,allowed-clock-rates = <133000000 240000000 300000000
 			384000000>;
 
