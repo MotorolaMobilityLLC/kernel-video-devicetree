@@ -34,6 +34,10 @@ ifeq ($(CONFIG_ARCH_BLAIR), y)
 dtbo-y += blair-vidc.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_HOLI), y)
+dtbo-y += holi-vidc.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
