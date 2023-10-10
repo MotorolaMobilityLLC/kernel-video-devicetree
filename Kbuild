@@ -34,6 +34,10 @@ ifeq ($(CONFIG_ARCH_BLAIR), y)
 dtbo-y += blair-vidc.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_PITTI), y)
+dtbo-y += pitti-vidc.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_HOLI), y)
 dtbo-y += holi-vidc.dtbo
 endif
