@@ -36,7 +36,7 @@
 
 		qcom,reg-presets = <0xB0080 0x0 0x03>;
 		/* Video Firmware ELF image name */
-		vidc,firmware-name = "venus_v6_rsa";
+		vidc,firmware-name = "venus_5mb_v6_rsa";
 		/* Bus Interconnects */
 		interconnect-names = "venus-cnoc", "venus-ddr";
 		interconnects = <&bimc MASTER_AMPSS_M0
