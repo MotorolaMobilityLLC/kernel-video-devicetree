@@ -5,7 +5,7 @@
 		reg = <0x5a00000 0x200000>;
 		interrupts = <GIC_SPI 225 IRQ_TYPE_LEVEL_HIGH>;
 
-		memory-region = <&pil_video_mem>;
+		memory-region = <&video_mem>;
 		pas-id = <9>;
 
 		/* IOMMU Config */
@@ -42,7 +42,7 @@
 		interconnects = <&bimc MASTER_AMPSS_M0
 					&config_noc SLAVE_VENUS_CFG>,
 				<&mmnrt_virt MASTER_VIDEO_P0
-					&bimc SLAVE_EBI>;
+					&bimc SLAVE_EBI_CH0>;
 		/* Bus BW range (low, high) for each bus */
 		qcom,bus-range-kbps = <1000 1000
 					1000 6500000>;
