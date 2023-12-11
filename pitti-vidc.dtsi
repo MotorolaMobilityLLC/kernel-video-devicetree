@@ -52,8 +52,7 @@
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_ns";
 			iommus =
-				<&apps_smmu 0xc60 0x00>,
-				<&apps_smmu 0xc80 0x00>;
+				<&apps_smmu 0x980 0x20>;
 			qcom,iommu-dma-addr-pool = <0x70800000 0x6f800000>;
 			qcom,iommu-faults = "non-fatal";
 			virtual-addr-pool = <0x70800000 0x6f800000>;
@@ -63,7 +62,7 @@
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_sec_bitstream";
 			iommus =
-				<&apps_smmu 0xc61 0x04>;
+				<&apps_smmu 0x981 0x04>;
 			qcom,iommu-dma-addr-pool = <0x4b000000 0x25800000>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0x9>; /*VMID_CP_BITSTREAM*/
@@ -75,7 +74,7 @@
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_sec_pixel";
 			iommus =
-				<&apps_smmu 0xc63 0x0>;
+				<&apps_smmu 0x983 0x0>;
 			qcom,iommu-dma-addr-pool = <0x25800000 0x25800000>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0xA>; /*VMID_CP_PIXEL*/
@@ -87,7 +86,7 @@
 			compatible = "qcom,msm-vidc,context-bank";
 			label = "venus_sec_non_pixel";
 			iommus =
-				<&apps_smmu 0xc04 0xE0>;
+				<&apps_smmu 0x984 0x20>;
 			qcom,iommu-dma-addr-pool = <0x1000000 0x24800000>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0xB>; /*VMID_CP_NON_PIXEL*/
