@@ -10,6 +10,7 @@
 / {
 	model = "Qualcomm Technologies, Inc. Pineapple";
 	compatible = "qcom,pineapple";
-	qcom,msm-id = <557 0x10000>, <577 0x10000>, <682 0x10000>, <696 0x10000>;
+	qcom,msm-id = <557 0x10000>, <577 0x10000>, <682 0x10000>, <696 0x10000>,
+			<645 0x10000>, <646 0x10000>, <702 0x10000>;
 	qcom,board-id = <0 0>;
 };
