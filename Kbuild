@@ -36,6 +36,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_PITTI), y)
 dtbo-y += pitti-vidc.dtbo
+dtbo-y += pitti-vidc-32go.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_HOLI), y)
