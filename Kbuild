@@ -17,6 +17,10 @@ ifeq ($(CONFIG_ARCH_CLIFFS), y)
 dtbo-y += cliffs-vidc.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_VOLCANO), y)
+dtbo-y += volcano-vidc.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
