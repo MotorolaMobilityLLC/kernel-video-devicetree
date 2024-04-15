@@ -1,3 +1,8 @@
+// SPDX-License-Identifier: BSD-3-Clause
+/*
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+ */
+
 &soc {
 	msm_vidc: qcom,vidc@aa00000 {
 		compatible = "qcom,sa8255-vidc";
@@ -13,7 +18,7 @@
 		/* Power Domains */
 		power-domains = <&videocc VIDEO_CC_MVS0C_GDSC>,
                 		<&videocc VIDEO_CC_MVS0_GDSC>;
-		power-domain-names = "iris-ctl", "vcodec";
+		power-domain-names = "venus", "vcodec0";
 
 		/* Clocks */
 		clocks = <&gcc GCC_VIDEO_AXI0_CLK>,
@@ -21,9 +26,9 @@
 			 <&videocc VIDEO_CC_MVS0_CLK>,
 			 <&videocc VIDEO_CC_MVS0_CLK_SRC>;
 		clock-names =
-			 "gcc_video_axi0",
-			 "core_clk",
-			 "vcodec_clk",
+			 "iface",
+			 "core",
+			 "vcodec0_core",
 			 "video_cc_mvs0_clk_src";
 
 		/* Bus Interconnects */
@@ -32,8 +37,8 @@
 			 <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>,
 			 <&mmss_noc MASTER_VIDEO_P0 &gem_noc SLAVE_LLCC>;
 		interconnect-names =
-			 "venus-cnoc",
-			 "venus-ddr",
+			 "cpu-cfg",
+			 "video-mem",
 			 "venus-llcc";
 
 		/* FW load region */
@@ -41,7 +46,7 @@
 
 		/* Clock Resets */
 		resets = <&gcc GCC_VIDEO_AXI0_CLK_ARES>;
-		reset-names = "video_axi_reset";
+		reset-names = "bus";
 
 		/* MMUs */
 		iommu_region_partition: iommu_region_partition {
