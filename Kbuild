@@ -22,6 +22,10 @@ ifeq ($(CONFIG_ARCH_LEMANS), y)
 dtbo-y += lemans-vidc.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_NIOBE), y)
+dtbo-y += niobe-vidc.dtbo
+endif
+
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
 clean-files    := *.dtb *.dtbo
