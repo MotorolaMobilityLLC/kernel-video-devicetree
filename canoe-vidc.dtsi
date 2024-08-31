@@ -9,10 +9,10 @@
 		status = "okay";
 
 		/* IOMMU Config */
-		#address-cells = <1>;
-		#size-cells = <1>;
+		#address-cells = <2>;
+		#size-cells    = <2>;
 
-		reg = <0x02000000 0xF0000>;
+		reg = <0x0 0x02000000 0x0 0xF0000>;
 		interrupts = <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH>;
 
 		/* Power Domains */
@@ -29,23 +29,31 @@
 			 <&gcc GCC_VIDEO_AXI0_CLK>,
 			 <&videocc VIDEO_CC_MVS0C_FREERUN_CLK>,
 			 <&videocc VIDEO_CC_MVS0_FREERUN_CLK>,
-			 <&videocc VIDEO_CC_MVS0C_CLK>,
 			 <&videocc VIDEO_CC_MVS0_CLK>,
+			 <&videocc VIDEO_CC_MVS0A_CLK>,
+			 <&videocc VIDEO_CC_MVS0B_CLK>,
+			 <&videocc VIDEO_CC_MVS0C_CLK>,
 			 <&videocc VIDEO_CC_MVS0_VPP0_CLK>,
 			 <&videocc VIDEO_CC_MVS0_VPP1_CLK>,
-			 <&videocc VIDEO_CC_MVS0A_CLK>,
-			 <&videocc VIDEO_CC_MVS0_CLK_SRC>;
+			 <&videocc VIDEO_CC_MVS0_CLK_SRC>,
+			 <&videocc VIDEO_CC_MVS0A_CLK_SRC>,
+			 <&videocc VIDEO_CC_MVS0B_CLK_SRC>,
+			 <&videocc VIDEO_CC_MVS0C_CLK_SRC>;
 		clock-names =
 			 "gcc_video_axi1_clk",
 			 "gcc_video_axi0_clk",
 			 "video_cc_mvs0c_freerun_clk",
 			 "video_cc_mvs0_freerun_clk",
-			 "video_cc_mvs0c_clk",
 			 "video_cc_mvs0_clk",
+			 "video_cc_mvs0a_clk",
+			 "video_cc_mvs0b_clk",
+			 "video_cc_mvs0c_clk",
 			 "video_cc_mvs0_vpp0_clk",
 			 "video_cc_mvs0_vpp1_clk",
-			 "video_cc_mvs0a_clk",
-			 "video_cc_mvs0_clk_src";
+			 "video_cc_mvs0_clk_src",
+			 "video_cc_mvs0a_clk_src",
+			 "video_cc_mvs0b_clk_src",
+			 "video_cc_mvs0c_clk_src";
 
 		/* Bus Interconnects */
 		interconnects =
