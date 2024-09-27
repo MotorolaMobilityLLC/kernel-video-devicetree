@@ -76,16 +76,16 @@
 		iommu_region_partition: iommu_region_partition {
 			/* These IOVA regions are unique per context bank */
 			iommu-addresses =
-				<&non_secure_pixel_cb 0x0 0x00100000>,
-					<&non_secure_pixel_cb 0xe0000000 0x20000000>,
-				<&non_secure_cb       0x0 0x25800000>,
-					<&non_secure_cb       0xe0000000 0x20000000>,
-				<&secure_non_pixel_cb 0x0 0x01000000>,
-					<&secure_non_pixel_cb 0x25800000 0xda800000>,
-				<&secure_bitstream_cb 0x0 0x00500000>,
-					<&secure_bitstream_cb 0xe0000000 0x20000000>,
-				<&secure_pixel_cb     0x0 0x00500000>,
-					<&secure_pixel_cb     0xe0000000 0x20000000>;
+				<&non_secure_pixel_cb 0x0 0x0 0x0 0x00100000>,
+					<&non_secure_pixel_cb 0x0 0xe0000000 0x0 0x20000000>,
+				<&non_secure_cb       0x0 0x0 0x0 0x25800000>,
+					<&non_secure_cb       0x0 0xe0000000 0x0 0x20000000>,
+				<&secure_non_pixel_cb 0x0 0x0 0x0 0x01000000>,
+					<&secure_non_pixel_cb 0x0 0x25800000 0x0 0xda800000>,
+				<&secure_bitstream_cb 0x0 0x0 0x0 0x00500000>,
+					<&secure_bitstream_cb 0x0 0xe0000000 0x0 0x20000000>,
+				<&secure_pixel_cb     0x0 0x0 0x0 0x00500000>,
+					<&secure_pixel_cb     0x0 0xe0000000 0x0 0x20000000>;
 		};
 
 		non_secure_pixel_cb: non_secure_pixel_cb {
