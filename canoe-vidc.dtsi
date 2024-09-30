@@ -110,6 +110,7 @@
 		non_secure_cb: non_secure_cb {
 			compatible = "qcom,vidc,cb-ns";
 			iommus = <&apps_smmu 0x1940 0x0000>,
+					 <&apps_smmu 0x1A20 0x0000>,
 					 <&apps_smmu 0x1944 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
@@ -120,7 +121,8 @@
 
 		secure_non_pixel_cb: secure_non_pixel_cb {
 			compatible = "qcom,vidc,cb-sec-non-pxl";
-			iommus = <&apps_smmu 0x1941 0x0000>;
+			iommus = <&apps_smmu 0x1941 0x0000>,
+					 <&apps_smmu 0x1A21 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0xB>; /* VMID_CP_NON_PIXEL */
