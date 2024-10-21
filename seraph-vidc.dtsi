@@ -20,7 +20,7 @@
 			 <&videocc VIDEO_CC_MVS0C_GDSC>,
 			 <&videocc VIDEO_CC_MVS0_GDSC>,
 			 <&videocc VIDEO_CC_MVS0_VPP0_GDSC>,
-			 <&videocc VIDEO_CC_MVS0_VPP1_GDSC>,
+			 <&videocc VIDEO_CC_MVS0_VPP1_GDSC>;
 		power-domain-names =
 			 "iris-ctl",
 			 "vcodec",
