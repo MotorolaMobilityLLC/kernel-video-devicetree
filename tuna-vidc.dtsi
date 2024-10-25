@@ -14,9 +14,10 @@
 		reg = <0x0aa00000 0xF0000>;
 		interrupts = <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH>;
 
-		/* Supply */
-		iris-ctl-supply = <&video_cc_mvs0c_gdsc>;
-		vcodec-supply = <&video_cc_mvs0_gdsc>;
+		/* Power Domains */
+		power-domains = <&videocc VIDEO_CC_MVS0C_GDSC>,
+				<&videocc VIDEO_CC_MVS0_GDSC>;
+		power-domain-names = "iris-ctl", "vcodec";
 
 		/* Clocks */
 		clocks =
