@@ -26,8 +26,8 @@ ifeq ($(CONFIG_ARCH_NIOBE), y)
 dtbo-y += niobe-vidc.dtbo
 endif
 
-ifeq ($(CONFIG_ARCH_SERAPH), y)
-dtbo-y += seraph-vidc.dtbo
+ifeq ($(CONFIG_ARCH_CANOE), y)
+dtbo-y += canoe-vidc.dtbo
 endif
 
 always-y    := $(dtb-y) $(dtbo-y)
