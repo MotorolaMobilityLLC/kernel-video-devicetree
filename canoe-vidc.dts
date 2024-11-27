@@ -15,6 +15,7 @@
 / {
 	model = "Qualcomm Technologies, Inc. Canoe";
 	compatible = "qcom,canoe";
-	qcom,msm-id = <0x10294 0x10000>;
+	qcom,msm-id = <0x1000294 0x10000>, <0x1000295 0x10000>,
+		<660 0x10000>, <661 0x10000>;
 	qcom,board-id = <0 0>;
 };
