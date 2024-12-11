@@ -6,7 +6,7 @@
 &soc {
 	msm_vidc: qcom,vidc@aa00000 {
 		compatible = "qcom,seraph-vidc";
-		status = "disabled";
+		status = "ok";
 
 		/* IOMMU Config */
 		#address-cells = <2>;
@@ -15,17 +15,11 @@
 		reg = <0x0 0xAA00000 0x0 0xF0000>;
 		interrupts = <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH>;
 
-		/* Power Domains */
-		power-domains =
-			 <&videocc VIDEO_CC_MVS0C_GDSC>,
-			 <&videocc VIDEO_CC_MVS0_GDSC>,
-			 <&videocc VIDEO_CC_MVS0_VPP0_GDSC>,
-			 <&videocc VIDEO_CC_MVS0_VPP1_GDSC>;
-		power-domain-names =
-			 "iris-ctl",
-			 "vcodec",
-			 "vpp0",
-			 "vpp1";
+		/* Supply */
+		iris-ctl-supply = <&video_cc_mvs0c_gdsc>;
+		vcodec-supply = <&video_cc_mvs0_gdsc>;
+		vpp0-supply = <&video_cc_mvs0_vpp0_gdsc>;
+		vpp1-supply = <&video_cc_mvs0_vpp1_gdsc>;
 
 		/* Clocks */
 		clocks =
@@ -59,7 +53,7 @@
 
 		/* Bus Interconnects */
 		interconnects =
-			 <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_VENUS_CFG>,
+			 <&gem_noc MASTER_APPSS_PROC &cnoc_cfg SLAVE_VENUS_CFG>,
 			 <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>,
 			 <&mmss_noc MASTER_VIDEO_MVP &gem_noc SLAVE_LLCC>;
 		interconnect-names =
@@ -75,13 +69,11 @@
 			 <&gcc GCC_VIDEO_AXI0_CLK_ARES>,
 			 <&gcc GCC_VIDEO_AXI1_CLK_ARES>,
 			 <&videocc VIDEO_CC_MVS0_FREERUN_CLK_ARES>,
-			 <&videocc VIDEO_CC_MVS0B_FREERUN_CLK_ARES>,
 			 <&videocc VIDEO_CC_MVS0C_FREERUN_CLK_ARES>;
 		reset-names =
 			 "video_axi0_reset",
 			 "video_axi1_reset",
 			 "video_mvs0_freerun_reset",
-			 "video_mvs0b_freerun_reset",
 			 "video_mvs0c_freerun_reset";
 
 		/* MMUs */
@@ -135,7 +127,7 @@
 
 		non_secure_bitstream_cb: non_secure_bitstream_cb {
 			compatible = "qcom,vidc,cb-ns-bitstream";
-			iommus = <&apps_smmu 0x1944 0x0000>,
+			iommus = <&apps_smmu 0x1944 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iova-max-align-shift = <8>; /* 1 MB */
 			qcom,iommu-faults = "non-fatal";

@@ -16,5 +16,5 @@
 	model = "Qualcomm Technologies, Inc. Seraph";
 	compatible = "qcom,seraph";
 	qcom,msm-id = <672 0x10000>;
-	qcom,board-id = <0 0>;
+	qcom,board-id = <0 0>, <15 0>;
 };
