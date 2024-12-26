@@ -9,10 +9,10 @@
 		status = "ok";
 
 		/* IOMMU Config */
-		#address-cells = <2>;
-		#size-cells = <2>;
+		#address-cells = <1>;
+		#size-cells = <1>;
 
-		reg = <0x0 0xAA00000 0x0 0xF0000>;
+		reg = <0xAA00000 0xF0000>;
 		interrupts = <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH>;
 
 		/* Supply */
@@ -26,29 +26,23 @@
 			 <&gcc GCC_VIDEO_AXI0_CLK>,
 			 <&gcc GCC_VIDEO_AXI1_CLK>,
 			 <&videocc VIDEO_CC_MVS0_FREERUN_CLK>,
-			 <&videocc VIDEO_CC_MVS0B_FREERUN_CLK>,
 			 <&videocc VIDEO_CC_MVS0C_FREERUN_CLK>,
 			 <&videocc VIDEO_CC_MVS0_CLK>,
-			 <&videocc VIDEO_CC_MVS0B_CLK>,
 			 <&videocc VIDEO_CC_MVS0C_CLK>,
 			 <&videocc VIDEO_CC_MVS0_VPP0_CLK>,
 			 <&videocc VIDEO_CC_MVS0_VPP1_CLK>,
 			 <&videocc VIDEO_CC_MVS0_CLK_SRC>,
-			 <&videocc VIDEO_CC_MVS0B_CLK_SRC>,
 			 <&videocc VIDEO_CC_MVS0C_CLK_SRC>;
 		clock-names =
 			 "gcc_video_axi0_clk",
 			 "gcc_video_axi1_clk",
 			 "video_cc_mvs0_freerun_clk",
-			 "video_cc_mvs0b_freerun_clk",
 			 "video_cc_mvs0c_freerun_clk",
 			 "video_cc_mvs0_clk",
-			 "video_cc_mvs0b_clk",
 			 "video_cc_mvs0c_clk",
 			 "video_cc_mvs0_vpp0_clk",
 			 "video_cc_mvs0_vpp1_clk",
 			 "video_cc_mvs0_clk_src",
-			 "video_cc_mvs0b_clk_src",
 			 "video_cc_mvs0c_clk_src";
 
 		/* Bus Interconnects */
@@ -80,23 +74,23 @@
 		iommu_region_partition: iommu_region_partition {
 			/* These IOVA regions are unique per context bank */
 			iommu-addresses =
-				 <&secure_non_pixel_cb     0x0 0x0        0x0 0x01000000>,
-				 <&secure_non_pixel_cb     0x0 0x33000000 0x0 0xcd000000>,
+				 <&secure_non_pixel_cb      0x0         0x01000000>,
+				 <&secure_non_pixel_cb      0x33000000  0xcd000000>,
 
-				 <&non_secure_non_pixel_cb 0x0 0x0        0x0 0x33000000>,
-				 <&non_secure_non_pixel_cb 0x0 0xf0000000 0x0 0x10000000>,
+				 <&non_secure_non_pixel_cb  0x0         0x33000000>,
+				 <&non_secure_non_pixel_cb  0xf0000000  0x10000000>,
 
-				 <&non_secure_bitstream_cb 0x0 0x0        0x0 0x00500000>,
-				 <&non_secure_bitstream_cb 0x0 0xf0000000 0x0 0x10000000>,
+				 <&non_secure_bitstream_cb  0x0         0x00500000>,
+				 <&non_secure_bitstream_cb  0xf0000000  0x10000000>,
 
-				 <&non_secure_pixel_cb     0x0 0x0        0x0 0x00500000>,
-				 <&non_secure_pixel_cb     0x0 0xf0000000 0x0 0x10000000>,
+				 <&non_secure_pixel_cb      0x0         0x00500000>,
+				 <&non_secure_pixel_cb      0xf0000000  0x10000000>,
 
-				 <&secure_bitstream_cb     0x0 0x0        0x0 0x00500000>,
-				 <&secure_bitstream_cb     0x0 0xf0000000 0x0 0x10000000>,
+				 <&secure_bitstream_cb      0x0         0x00500000>,
+				 <&secure_bitstream_cb      0xf0000000  0x10000000>,
 
-				 <&secure_pixel_cb         0x0 0x0        0x0 0x00500000>,
-				 <&secure_pixel_cb         0x0 0xf0000000 0x0 0x10000000>;
+				 <&secure_pixel_cb          0x0         0x00500000>,
+				 <&secure_pixel_cb          0xf0000000  0x10000000>;
 		};
 
 		secure_non_pixel_cb: secure_non_pixel_cb {
