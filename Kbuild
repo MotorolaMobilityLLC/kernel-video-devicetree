@@ -28,6 +28,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_CANOE), y)
 dtbo-y += canoe-vidc.dtbo
+dtbo-y += canoe-vidc-v2.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SERAPH), y)
