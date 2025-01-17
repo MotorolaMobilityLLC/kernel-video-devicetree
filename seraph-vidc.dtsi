@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
 &soc {
@@ -80,9 +80,6 @@
 				 <&non_secure_non_pixel_cb  0x0         0x33000000>,
 				 <&non_secure_non_pixel_cb  0xf0000000  0x10000000>,
 
-				 <&non_secure_bitstream_cb  0x0         0x00500000>,
-				 <&non_secure_bitstream_cb  0xf0000000  0x10000000>,
-
 				 <&non_secure_pixel_cb      0x0         0x00500000>,
 				 <&non_secure_pixel_cb      0xf0000000  0x10000000>,
 
@@ -111,17 +108,8 @@
 			compatible = "qcom,vidc,cb-ns";
 			iommus =
 				 <&apps_smmu 0x1940 0x0000>,
-				 <&apps_smmu 0x1A60 0x0000>;
-			memory-region = <&iommu_region_partition>;
-			qcom,iova-max-align-shift = <8>; /* 1 MB */
-			qcom,iommu-faults = "non-fatal";
-			qcom,iova-best-fit;
-			dma-coherent;
-		};
-
-		non_secure_bitstream_cb: non_secure_bitstream_cb {
-			compatible = "qcom,vidc,cb-ns-bitstream";
-			iommus = <&apps_smmu 0x1944 0x0000>;
+				 <&apps_smmu 0x1A60 0x0000>,
+				 <&apps_smmu 0x1944 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iova-max-align-shift = <8>; /* 1 MB */
 			qcom,iommu-faults = "non-fatal";
