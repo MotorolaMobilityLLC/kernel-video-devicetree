@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
 &soc {
@@ -28,10 +28,12 @@
 			 <&videocc VIDEO_CC_MVS0_FREERUN_CLK>,
 			 <&videocc VIDEO_CC_MVS0C_FREERUN_CLK>,
 			 <&videocc VIDEO_CC_MVS0_CLK>,
+			 <&videocc VIDEO_CC_MVS0B_CLK>,
 			 <&videocc VIDEO_CC_MVS0C_CLK>,
 			 <&videocc VIDEO_CC_MVS0_VPP0_CLK>,
 			 <&videocc VIDEO_CC_MVS0_VPP1_CLK>,
 			 <&videocc VIDEO_CC_MVS0_CLK_SRC>,
+			 <&videocc VIDEO_CC_MVS0B_CLK_SRC>,
 			 <&videocc VIDEO_CC_MVS0C_CLK_SRC>;
 		clock-names =
 			 "gcc_video_axi0_clk",
@@ -39,10 +41,12 @@
 			 "video_cc_mvs0_freerun_clk",
 			 "video_cc_mvs0c_freerun_clk",
 			 "video_cc_mvs0_clk",
+			 "video_cc_mvs0b_clk",
 			 "video_cc_mvs0c_clk",
 			 "video_cc_mvs0_vpp0_clk",
 			 "video_cc_mvs0_vpp1_clk",
 			 "video_cc_mvs0_clk_src",
+			 "video_cc_mvs0b_clk_src",
 			 "video_cc_mvs0c_clk_src";
 
 		/* Bus Interconnects */
