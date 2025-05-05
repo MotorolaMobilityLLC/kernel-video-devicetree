@@ -18,6 +18,12 @@ dtbo-y += sun-vidc.dtbo
 dtbo-y += sun-vidc-v2.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_LEMANS), y)
+ifeq ($(CONFIG_ARCH_QTI_VM), y)
+dtbo-y += sa8797p-vidc-vm-la.dtbo
+endif
+endif
+
 ifeq ($(CONFIG_ARCH_NIOBE), y)
 dtbo-y += niobe-vidc.dtbo
 endif
