@@ -33,6 +33,10 @@ dtbo-y += canoe-vidc.dtbo
 dtbo-y += canoe-vidc-v2.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_ALOR), y)
+dtbo-y += alor-vidc.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SERAPH), y)
 dtbo-y += seraph-vidc.dtbo
 endif
