@@ -5,7 +5,7 @@
 
 &soc {
 	msm_vidc: qcom,vidc@aa00000 {
-		compatible = "qcom,niobe-vidc";
+		compatible = "qcom,x1e80100-vidc";
 		status = "okay";
 
 		/* IOMMU Config */
@@ -15,9 +15,10 @@
 		reg = <0x0aa00000 0xf0000>;
 		interrupts = <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH>;
 
-		/* Supply */
-		iris-ctl-supply = <&video_cc_mvs0c_gdsc>;
-		vcodec-supply = <&video_cc_mvs0_gdsc>;
+		/* Power Domains */
+		power-domains = <&videocc VIDEO_CC_MVS0C_GDSC>,
+				<&videocc VIDEO_CC_MVS0_GDSC>;
+		power-domain-names = "venus", "vcodec0";
 
 		/* Clocks */
 		clocks = <&gcc GCC_VIDEO_AXI0_CLK>,
@@ -32,7 +33,7 @@
 
 		/* Bus Interconnects */
 		interconnects =
-			 <&gem_noc MASTER_APPSS_PROC &cnoc_cfg SLAVE_VENUS_CFG>,
+			 <&gem_noc MASTER_APPSS_PROC &config_noc SLAVE_VENUS_CFG>,
 			 <&mc_virt MASTER_LLCC &mc_virt SLAVE_EBI1>,
 			 <&mmss_noc MASTER_VIDEO &gem_noc SLAVE_LLCC>;
 		interconnect-names =
@@ -43,8 +44,10 @@
 		/* FW load region */
 		memory-region = <&video_mem>;
 
-		/* SOCCP */
-		qcom,vidc,soccp-controller = <&soccp_pas>;
+		/* Clock Resets */
+		resets = <&gcc GCC_VIDEO_AXI0_CLK_ARES>;
+		reset-names = "bus";
+
 
 		/* MMUs */
 		iommu_region_partition: iommu_region_partition {
@@ -64,7 +67,7 @@
 
 		non_secure_pixel_cb: non_secure_pixel_cb {
 			compatible = "qcom,vidc,cb-ns-pxl";
-			iommus = <&apps_smmu 0x1987 0x0000>;
+			iommus = <&apps_smmu 0x1947 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iova-best-fit;
@@ -75,7 +78,7 @@
 
 		non_secure_cb: non_secure_cb {
 			compatible = "qcom,vidc,cb-ns";
-			iommus = <&apps_smmu 0x1980 0x0000>;
+			iommus = <&apps_smmu 0x1940 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iova-best-fit;
@@ -85,7 +88,7 @@
 
 		secure_non_pixel_cb: secure_non_pixel_cb {
 			compatible = "qcom,vidc,cb-sec-non-pxl";
-			iommus = <&apps_smmu 0x1984 0x0000>;
+			iommus = <&apps_smmu 0x1944 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0xB>; /* VMID_CP_NON_PIXEL */
@@ -96,7 +99,7 @@
 
 		secure_bitstream_cb: secure_bitstream_cb {
 			compatible = "qcom,vidc,cb-sec-bitstream";
-			iommus = <&apps_smmu 0x1981 0x0004>;
+			iommus = <&apps_smmu 0x1941 0x0004>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0x9>; /* VMID_CP_BITSTREAM */
@@ -107,7 +110,7 @@
 
 		secure_pixel_cb: secure_pixel_cb {
 			compatible = "qcom,vidc,cb-sec-pxl";
-			iommus = <&apps_smmu 0x1983 0x0000>;
+			iommus = <&apps_smmu 0x1943 0x0000>;
 			memory-region = <&iommu_region_partition>;
 			qcom,iommu-faults = "non-fatal";
 			qcom,iommu-vmid = <0xA>; /* VMID_CP_PIXEL */

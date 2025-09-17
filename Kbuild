@@ -3,6 +3,10 @@ ifeq ($(CONFIG_ARCH_WAIPIO), y)
 dtbo-y += waipio-vidc.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_X1E80100), y)
+dtbo-y += x1e80100-vidc.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_KALAMA), y)
 dtbo-y += kalama-vidc.dtbo
 dtbo-y += kalama-vidc-v2.dtbo
