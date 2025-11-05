@@ -8,13 +8,13 @@
 
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 #include <dt-bindings/clock/qcom,x1e80100-gcc.h>
-#include <dt-bindings/interconnect/qcom,x1e80100.h>
-#include <dt-bindings/clock/qcom,x1e80100-videocc.h>
+#include <dt-bindings/interconnect/qcom,x1e80100-rpmh.h>
+#include <dt-bindings/clock/qcom,sm8650-videocc.h>
 #include "x1e80100-vidc.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. X1E80100";
-	compatible = "qcom,x1e80100";
-	qcom,msm-id = <519 0x10000>, <536 0x10000>, <555 0x10000>;
-	qcom,board-id = <0 0>;
+	compatible = "qcom,x1e80100-crd", "qcom,x1e80100", "qcom,crd";
+	qcom,msm-id = <555 0x10000>, <555 0x20000>;
+	qcom,board-id = <40 0>;
 };
