@@ -22,6 +22,10 @@ dtbo-y += sun-vidc.dtbo
 dtbo-y += sun-vidc-v2.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_CHORA), y)
+dtbo-y += chora-vidc.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_LEMANS), y)
 ifeq ($(CONFIG_ARCH_QTI_VM), y)
 dtbo-y += sa8797p-vidc-vm-la.dtbo
