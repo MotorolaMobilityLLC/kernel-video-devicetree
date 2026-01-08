@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: BSD-3-Clause
 /*
- * Copyright (c) Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
 &soc {
@@ -23,10 +23,12 @@
 			<&gcc GCC_VENUS_CTL_AXI_CLK>,
 			<&gcc GCC_VIDEO_VCODEC0_SYS_CLK>,
 			<&gcc GCC_VCODEC0_AXI_CLK>,
-			<&gcc GCC_VIDEO_THROTTLE_CORE_CLK>;
+			<&gcc GCC_VIDEO_THROTTLE_CORE_CLK>,
+			<&gcc GCC_VIDEO_VENUS_CLK_SRC>;
 
 		clock-names = "core_clk", "bus_clk",
-			"core0_clk", "core0_bus_clk", "throttle_clk";
+			"core0_clk", "core0_bus_clk", "throttle_clk",
+			"video_clk_src";
 
 		/* Bus Interconnects */
 		interconnects =
@@ -60,7 +62,6 @@
 			qcom,iommu-faults = "non-fatal";
 			qcom,iova-best-fit;
 			qcom,iova-max-align-shift = <8>; /* 1 MB */
-			dma-coherent;
 		};
 
 		secure_non_pixel_cb: secure_non_pixel_cb {
