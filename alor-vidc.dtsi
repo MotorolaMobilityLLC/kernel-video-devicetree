@@ -62,13 +62,17 @@
 
 		/* Clock Resets */
 		resets =
+			 <&gcc GCC_VIDEO_XO_CLK_ARES>,
 			 <&gcc GCC_VIDEO_AXI1_CLK_ARES>,
 			 <&gcc GCC_VIDEO_AXI0_CLK_ARES>,
+			 <&videocc VIDEO_CC_XO_CLK_ARES>,
 			 <&videocc VIDEO_CC_MVS0C_FREERUN_CLK_ARES>,
 			 <&videocc VIDEO_CC_MVS0_FREERUN_CLK_ARES>;
 		reset-names =
+			 "gcc_video_xo_ares_reset",
 			 "video_axi1_reset",
 			 "video_axi0_reset",
+			 "video_cc_xo_ares_reset",
 			 "video_mvs0c_freerun_reset",
 			 "video_mvs0_freerun_reset";
 
